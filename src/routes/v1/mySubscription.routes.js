@@ -6,4 +6,5 @@ const { mySubscription } = require("../../controllers");
 const router = express.Router();
 
 router.route('/create').post(auth(),mySubscription.createSubscription)
+router.route('/mySubs').get(auth(),mySubscription.getMySubscriptions)
 module.exports=router;
