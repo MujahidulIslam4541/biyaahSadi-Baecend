@@ -15,3 +15,5 @@ const createSubscription = catchAsync(async (req, res) => {
     data: result,
   });
 });
+
+module.exports={createSubscription}
