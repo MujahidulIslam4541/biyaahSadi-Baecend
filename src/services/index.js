@@ -4,3 +4,4 @@ module.exports.tokenService = require('./token.service');
 module.exports.userService = require('./user.service');
 module.exports.subscriptionService=require('./subscription.service')
 module.exports.mySubscriptionService=require('./mySubscription.service')
+module.exports.friendsService=require('./friends.service')

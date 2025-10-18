@@ -5,6 +5,7 @@ const userRoute = require("./user.routes");
 const docsRoute = require("./docs.routes");
 const subscriptionRoute=require('./subscription.routes')
 const mySubscriptionRoute=require('./mySubscription.routes')
+const friendRoute=require('./friend.route')
 
 
 const router = express.Router();
@@ -25,6 +26,10 @@ const defaultRoutes = [
   {
     path: "/mySubs",
     route: mySubscriptionRoute,
+  },
+  {
+    path: "/friend",
+    route: friendRoute,
   },
  
 ];

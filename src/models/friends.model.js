@@ -1,29 +1,30 @@
 const mongoose = require("mongoose");
+const { Schema } = mongoose;
+const { roles } = require("../config/roles");
 
-const friendsSchema = new mongoose.Schema(
-  {
-    userId: {
-      type: mongoose.Schema.Types.ObjectId,
-      ref: "User",
-      required: true,
-    },
-    profileId: {
-      type: mongoose.Schema.Types.ObjectId,
-      ref: "User",
-      required: true,
-    },
-    status: {
-      type: String,
-      
-      enum: ["pending", "accepted", "blocked"],
-      default: "pending",
-    },
+const friendsSchema = new Schema({
+  sender: {
+    type: Schema.Types.ObjectId,
+    ref: "User",
+    required: true,
   },
-  {
-    timestamps: true, // automatically adds createdAt & updatedAt
-  }
-);
+  receiver: {
+    type: Schema.Types.ObjectId,
+    ref: "User",
+    required: true,
+  },
+  status: {
+    type: String,
+    enum: ["pending", "accepted"],
+    default: "pending",
+  },
+  createdAt: {
+    type: Date,
+    default: Date.now,
+  },
+  respondedAt: {
+    type: Date,
+  },
+});
 
-const Friend = mongoose.model("Friend", friendsSchema);
-
-module.exports = Friend;
+module.exports = mongoose.model("friends", friendsSchema);
